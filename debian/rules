@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+
+export DEB_LDFLAGS_MAINT_APPEND=-Wl,-z,defs -Wl,--as-needed -Wl,-O1
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_test:
+
+override_dh_auto_configure:
+	NOCONFIGURE=1 xdt-autogen
+	dh_auto_configure -- --enable-maintainer-mode
+
+override_dh_install:
+	dh_install
+	mv debian/xfburn/usr/share/appdata/ debian/xfburn/usr/share/metainfo
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -f $$(find -name 'Makefile.in*')
+	rm -f INSTALL aclocal.m4 config.guess config.sub configure
+	rm -f depcomp install-sh ltmain.sh missing mkinstalldirs

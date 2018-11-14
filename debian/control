@@ -1,0 +1,35 @@
+Source: xfburn
+Section: xfce
+Priority: optional
+Maintainer: Debian Xfce Maintainers <pkg-xfce-devel@lists.alioth.debian.org>
+Uploaders: Yves-Alexis Perez <corsac@debian.org>,
+           Lionel Le Folgoc <mrpouit@gmail.com>
+Build-Depends: autoconf,
+               automake,
+               debhelper (>= 9),
+               dpkg-dev (>= 1.16.1),
+               intltool,
+               libburn-dev,
+               libdbus-glib-1-dev,
+               libexo-1-dev (>= 0.6.0),
+               libgstreamer-plugins-base1.0-dev,
+               libgstreamer1.0-dev,
+               libgudev-1.0-dev [linux-any],
+               libisofs-dev,
+               libtool,
+               libxfce4ui-1-dev (>= 4.8.0),
+               xfce4-dev-tools
+Standards-Version: 4.1.2
+Vcs-Svn: svn://anonscm.debian.org/pkg-xfce/goodies/trunk/xfburn/
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-xfce/goodies/trunk/xfburn/
+Homepage: http://goodies.xfce.org/projects/applications/xfburn
+
+Package: xfburn
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: CD-burner application for Xfce Desktop Environment
+ Xfburn is a tool to help burning CDs and DVDs. It fits well in the Xfce
+ Desktop Environment but can be used anywhere.
+ .
+ It's currently in development so some features may be missing, but it's
+ already able to burn data.
